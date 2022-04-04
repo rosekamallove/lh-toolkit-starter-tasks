@@ -1,11 +1,13 @@
 import { LitElement, html } from "lit";
+import "../period/period.js";
 import "@material/mwc-formfield/mwc-formfield.js";
 import "@material/mwc-checkbox/mwc-checkbox.js";
 
-class ActiveStatus extends LitElement {
+class DeceaseStatus extends LitElement {
   static get properties() {
     return {
-      activeStatus: { type: String },
+      deceaseStatus: { type: String },
+      periodField: { type: String },
       url: { type: String },
       value: { type: Boolean, reflect: true },
     };
@@ -13,30 +15,33 @@ class ActiveStatus extends LitElement {
 
   constructor() {
     super();
-    this.activeStatus = "true";
+    this.deceaseStatus = "true";
     this.value = false;
+    this.periodField = "false";
   }
 
   render() {
     return html`
-      <div id="activeDiv">
-        ${this.activeStatus !== "false"
+      <div id="div">
+        ${this.deceaseStatus !== "false"
           ? html`<mwc-formfield
-              class="activeStatus"
+              class="deceaseStatus"
               alignEnd
-              label="Active-Status:"
+              label="Deceased Status:"
             >
               <mwc-checkbox
-                id="active"
+                class="decease"
                 ?checked="${this.value}"
-                class="activeState"
                 @click="${(e) => (this.value = !e.target.checked)}"
               ></mwc-checkbox>
             </mwc-formfield>`
+          : ""}
+        ${this.periodField !== "false"
+          ? html`<fhir-period class="periodField"></fhir-period>`
           : ""}
       </div>
     `;
   }
 }
 
-window.customElements.define("active-status", ActiveStatus);
+window.customElements.define("decease-status", DeceaseStatus);
