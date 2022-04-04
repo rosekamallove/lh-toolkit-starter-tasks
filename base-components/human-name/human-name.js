@@ -8,9 +8,11 @@ import "@polymer/iron-ajax/iron-ajax.js";
 class HumanName extends LitElement {
   static get properties() {
     return {
+      prefixField: { type: String },
       fname: { type: String },
       mname: { type: String },
       lname: { type: String },
+      suffixField: { type: String },
       useField: { type: String },
       value: { type: Array },
     };
@@ -18,9 +20,11 @@ class HumanName extends LitElement {
 
   constructor() {
     super();
+    this.prefixField = "true";
     this.fname = "true";
     this.mname = "false";
     this.lname = "true";
+    this.suffixField = "true";
     this.useField = "true";
     this.value = [{ given: [] }];
   }
@@ -49,6 +53,16 @@ class HumanName extends LitElement {
               `
             : ""}
         </mwc-formfield>
+        ${this.prefixField !== "false"
+          ? html`<mwc-textfield
+              outlined
+              class="prefixField"
+              .value="${i.prefix || ""}"
+              @input="${(e) => (this.value[index].prefix = e.target.value)}"
+              id="prefix"
+              label="Prefix"
+            ></mwc-textfield>`
+          : ""}
         ${this.fName !== "false"
           ? html`<mwc-textfield
               outlined
@@ -77,6 +91,15 @@ class HumanName extends LitElement {
               .value="${i.family || ""}"
               @input="${(e) => (this.value[index].family = e.target.value)}"
               label="Last Name:"
+            ></mwc-textfield>`
+          : ""}
+        ${this.suffixField !== "false"
+          ? html`<mwc-textfield
+              outlined
+              class="suffixField"
+              value="${i.suffix || ""}"
+              @input="${(e) => (this.value[index].suffix = e.target.value)}"
+              label="Suffix"
             ></mwc-textfield>`
           : ""}
       </div>`
