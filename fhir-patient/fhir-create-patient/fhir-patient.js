@@ -1,6 +1,6 @@
 import { LitElement, html } from "lit";
 
-class FhirObservation extends LitElement {
+class FhirPatient extends LitElement {
   static get properties() {
     return { test: String };
   }
@@ -12,9 +12,9 @@ class FhirObservation extends LitElement {
           color: #2ecc71;
         }
       </style>
-      FhirObservation <span class="color">${this.test}</span>!
+      FhirCreatePatient <span class="color">${this.test}</span>!
     `;
   }
 }
 
-window.customElements.define("fhir-observation", FhirObservation);
+window.customElements.define("fhir-create-patient", FhirPatient);

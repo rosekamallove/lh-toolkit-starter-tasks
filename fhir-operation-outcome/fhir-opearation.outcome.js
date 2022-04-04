@@ -1,21 +1,20 @@
-import { PolymerElement } from "@polymer/polymer";
-import { html } from "@polymer/polymer";
+import { LitElement, html } from "lit";
 
-class FhirOperationOutcome extends PolymerElement {
+class FhirOperationOutcome extends LitElement {
   static get properties() {
     return { test: String };
   }
 
-  static get template() {
+  render() {
     return html`
       <style>
         .color {
           color: #2ecc71;
         }
       </style>
-      FhirOperationOutcome <span class="color">[[test]]</span>!
+      FhirOperationOutcome <span class="color">${this.test}</span>!
     `;
   }
 }
 
-customElements.define("fhir-operation-outcome", FhirOperationOutcome);
+window.customElements.define("fhir-operation-outcome", FhirOperationOutcome);

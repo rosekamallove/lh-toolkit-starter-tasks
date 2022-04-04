@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/rosekamallove/lh-toolkit-starter-tasks#readme",
   "dependencies": {
-    "@polymer/polymer": "^3.4.1"
+    "@polymer/polymer": "^3.4.1",
+    "lit": "^2.2.1"
   }
 }
