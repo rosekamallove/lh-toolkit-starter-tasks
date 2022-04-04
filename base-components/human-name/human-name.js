@@ -1,4 +1,5 @@
 import { LitElement, html } from "lit";
+import "../period/period.js";
 import "@material/mwc-textfield/mwc-textfield.js";
 import "@material/mwc-formfield";
 import "@material/mwc-list/mwc-list-item";
@@ -14,6 +15,7 @@ class HumanName extends LitElement {
       lname: { type: String },
       suffixField: { type: String },
       useField: { type: String },
+      periodField: { type: String },
       value: { type: Array },
     };
   }
@@ -26,6 +28,7 @@ class HumanName extends LitElement {
     this.lname = "true";
     this.suffixField = "true";
     this.useField = "true";
+    this.periodField = "true";
     this.value = [{ given: [] }];
   }
 
@@ -83,6 +86,9 @@ class HumanName extends LitElement {
               @input="${(e) => (this.value[index].given[1] = e.target.value)}"
               label="Middle Name:"
             ></mwc-textfield>`
+          : ""}
+        ${this.periodField !== "false"
+          ? html`<time-period class="periodField"></time-period>`
           : ""}
         ${this.lName !== "false"
           ? html`<mwc-textfield
