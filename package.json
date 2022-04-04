@@ -24,6 +24,7 @@
     "@material/mwc-list": "^0.25.3",
     "@material/mwc-select": "^0.25.3",
     "@material/mwc-textfield": "^0.25.3",
+    "@material/mwc-checkbox": "^0.25.3",
     "@polymer/iron-ajax": "^3.0.1",
     "@polymer/polymer": "^3.4.1",
     "@webcomponents/webcomponentsjs": "^2.6.0",
