@@ -1,10 +1,10 @@
-import { LitElement, html } from "lit";
-import "../period/period.js";
-import "@material/mwc-textfield/mwc-textfield.js";
 import "@material/mwc-formfield";
 import "@material/mwc-list/mwc-list-item";
 import "@material/mwc-select";
+import "@material/mwc-textfield/mwc-textfield.js";
 import "@polymer/iron-ajax/iron-ajax.js";
+import { html, LitElement } from "lit";
+import "../period/period.js";
 
 class HumanName extends LitElement {
   static get properties() {
