@@ -58,6 +58,12 @@ class GetPatient extends LitElement {
       this.value = JSON.parse(this.value);
     }
     return html`
+      <!-- ${this.patientId !== "false"
+        ? html`<person-identifier
+            .value="${this.value.identifier}"
+            id="patientId"
+          ></person-identifier>`
+        : ""} -->
       ${this.patientName !== "false"
         ? html`<human-name
             .value="${this.value.name}"
